@@ -1,0 +1,47 @@
+:root {
+
+    /*Raw values*/
+
+    --black: #000000;
+    --atomic-black: #0F0F0F;
+    --eerie-black: #181818;
+    --carbon-black: #212121;
+    --dark-charcoal: #30302E;
+    --charcoal: #262624;
+    --dark-cool-grey: #4D5156;
+    --metalic-gray: #C0C0C0;
+    --olive-gray: #262624;
+    --pale-gray: #E3E3E3;
+    --retro-black: #1F1F1F;
+
+    --concrete: #F2F2F2;
+    --pale-blue-gray: #E8EAED;
+    --argent: #BFBFBF;
+    --white: #ffffff;
+
+    --spring-sky: #34ABEB;
+    --admiral: #051094;
+    --euro-blue: #0f218b;
+    --electric-blue: #0000F8;
+
+    --euro-yellow: #0f218b;
+    --metalic-orange-rgb: #DB5302;
+
+    /*Bacground variables*/
+
+    --main-light-bg-color: var(--white);
+    --secondary-light-bg-color: var(--argent);
+    --thertiary-light-bg-color: var(--metalic-gray);
+    --main-light-text-color: var(--black);
+    --secondary-light-text-color: var(--atomic-black);
+    --tertiary-light-text-color: var(--retro-black);
+
+    --main-dark-bg-color: var(--atomic-black);
+    --secondary-dark-bg-color: var(--dark-cool-grey);
+    --thertiary-dark-bg-color: var(--dark-charcoal);
+    --main-dark-text-color: var(--white);
+    --secondary-dark-text-color: var(--pale-gray);
+    --tertiary-dark-text-color: var(--argent);
+
+}
+
