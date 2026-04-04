@@ -2,30 +2,31 @@
 
     /*Raw values*/
 
-    --black: #000000;
-    --atomic-black: #0F0F0F;
-    --eerie-black: #181818;
-    --carbon-black: #212121;
-    --dark-charcoal: #30302E;
-    --charcoal: #262624;
-    --dark-cool-grey: #4D5156;
-    --metalic-gray: #C0C0C0;
-    --olive-gray: #262624;
-    --pale-gray: #E3E3E3;
-    --retro-black: #1F1F1F;
+    --black: rgb(0,0,0);
+    --atomic-black: rgb(15,15,15);
+    --eerie-black: rgb(24,24,24);
+    --carbon-black: rgb(33,33,33);
+    --dark-charcoal: rgb(48,48,46);
+    --charcoal: rgb(38,38,36);
+    --dark-cool-grey: rgb(77,81,86);
+    --metalic-gray: rgb(192,192,192);
+    --olive-gray: rgb(38,38,34);
+    --pale-gray: rgb(227,227,227);
+    --retro-black: rgb(31,31,31);
 
-    --concrete: #F2F2F2;
-    --pale-blue-gray: #E8EAED;
-    --argent: #BFBFBF;
-    --white: #ffffff;
+    --concrete: rgb(242,242,242);
+    --pale-blue-gray: rgb(232,234,237);
+    --argent: rgb(191,191,191);
+    --white: rgb(255,255,255);
 
-    --spring-sky: #34ABEB;
-    --admiral: #051094;
-    --euro-blue: #0f218b;
-    --electric-blue: #0000F8;
+    --spring-sky: rgb(52,171,235);
+    --admiral: rgb(5,16,148);
+    --euro-blue: rgb(15,33,139);
+    --electric-blue: rgb(0,0,248);
+    --light-electric-blue: rgb(80,80,248);
 
-    --euro-yellow: #0f218b;
-    --metalic-orange-rgb: #DB5302;
+    --euro-yellow: rgb(255,255,0);
+    --metalic-orange: rgb(219,83,2);
 
     /*Bacground variables*/
 

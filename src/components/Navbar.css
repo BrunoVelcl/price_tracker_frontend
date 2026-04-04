@@ -1,0 +1,67 @@
+@import "./../variables.css";
+
+:root {
+    --color: var(--euro-yellow);
+    --bacground-gradient: linear-gradient(var(--electric-blue) 10%, var(--light-electric-blue) , var(--electric-blue) 80%);
+    --button-hover-background: rgb(from var(--color) r g b / 0.1);
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: var(--argent);
+        --bacground-gradient: linear-gradient(var(--black) 10%, var(--retro-black) , var(--black) 80%);
+	--button-hover-background: rgb(from var(--color) r g b / 0.3);
+
+    }
+}
+
+nav {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background: var(--bacground-gradient);    
+    color: var(--color);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    h1{
+	font-size: 1rem;
+	white-space: nowrap;
+	margin-left: 1rem;
+    }
+
+    section {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	
+	.nav-logo,
+	.profile-icon {
+	    color: var(--color);
+	    height: 100%;
+	    width: 2rem;
+	    padding-right: 1rem;
+	    padding-left: 1rem;
+	}
+
+	a {
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    height: 100%;
+	    margin: 0;
+	    padding-left: 1rem;
+	    padding-right: 1rem;
+	    text-decoration: none;
+	    font-family: inherit;
+	    font-weight: bold;
+	    font-size: 1rem;
+	    color: inherit;
+	}
+	a:hover,
+	.profile-icon:hover {
+	    background: var(--button-hover-background);
+	}
+    }
+}
