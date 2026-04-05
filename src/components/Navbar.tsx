@@ -8,13 +8,13 @@ export default function Navbar() {
 	    <nav>
 		<section>
 		    <Logo />
-		    <h1>Shoping Lista</h1>
+		    <a href=""><h1>Shoping Lista</h1></a>
 		</section>
 		<section>
-		    <a href="">Login</a>
-		    <a href="">Register</a>
-		    <a href="">List</a>
-		    <ProfileIcon />
+		    <a className="nav-button" href="">Login</a>
+		    <a className="nav-button" href="">Register</a>
+		    <a className="nav-button" href="">List</a>
+		    <a className="nav-button" href=""><ProfileIcon /></a>
 		</section>
 	    </nav>
 	</>

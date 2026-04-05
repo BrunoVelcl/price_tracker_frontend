@@ -16,6 +16,11 @@
     }
 }
 
+a {
+    text-decoration:none;
+    color: inherit;
+}
+
 nav {
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -25,43 +30,44 @@ nav {
     flex-flow: row nowrap;
     justify-content: space-between;
 
-    h1{
-	font-size: 1rem;
-	white-space: nowrap;
-	margin-left: 1rem;
-    }
-
     section {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	
-	.nav-logo,
-	.profile-icon {
-	    color: var(--color);
-	    height: 100%;
-	    width: 2rem;
-	    padding-right: 1rem;
-	    padding-left: 1rem;
-	}
 
-	a {
-	    display: flex;
-	    align-items: center;
-	    justify-content: center;
-	    height: 100%;
-	    margin: 0;
-	    padding-left: 1rem;
-	    padding-right: 1rem;
-	    text-decoration: none;
-	    font-family: inherit;
-	    font-weight: bold;
+	h1 {
 	    font-size: 1rem;
-	    color: inherit;
+	    white-space: nowrap;
+	    margin: 0 1rem 0 1rem;
+	    transition: transform 0.2s ease;
 	}
-	a:hover,
-	.profile-icon:hover {
-	    background: var(--button-hover-background);
+	h1:hover {
+	    transform: scale(1.05);
 	}
     }
+}
+	
+.nav-logo,
+.profile-icon {
+    color: var(--color);
+    height: 80%;
+    width: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.nav-button:hover {
+    background: var(--button-hover-background);
 }
