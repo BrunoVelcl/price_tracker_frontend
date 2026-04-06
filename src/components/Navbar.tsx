@@ -33,8 +33,11 @@ export default function Navbar() {
 		    />
 
 		    { hamburgerIsPressed && createPortal(
-			<div className="mobile-menu">{getNavButtons(()=>setHamburgerIsPressed(false))}</div>,
-			    document.getElementById("mobile-nav-portal") ?? document.body)
+			<div className="mobile-menu">
+			    {getNavButtons(()=>setHamburgerIsPressed(false))}
+			    <a href="#" className="nav-button" onClick={()=>setHamburgerIsPressed(false)}>My Profile</a>
+			</div>,
+			document.getElementById("mobile-nav-portal") ?? document.body)
 		    }
 
 		</section>
