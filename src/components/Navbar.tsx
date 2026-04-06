@@ -4,6 +4,7 @@ import ProfileIcon from "./../assets/profile_icon";
 import HamburgerButton from "./buttons/hamburger";
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "motion/react";
 
 const navButtons = [
     ["Login", "#"],
@@ -11,19 +12,24 @@ const navButtons = [
     ["List", "#"]
 ];
 
+const iconReplacements = [["Moj profil", "#"], ["Link", "#"]];
+
 export default function Navbar() {
 
     const [hamburgerIsPressed, setHamburgerIsPressed] = useState(false); 
     return (
 	<>
-	    <nav>
+	    <motion.nav 
+		initial={{ y: -30 }}
+		animate={{ y: 0 }}
+		transition={{ duration: 0.5, ease:"easeOut" }}>
 		<section>
 		    <Logo />
 		    <a href="#"><h1>Shoping Lista</h1></a>
 		</section>
 		<section>
 
-		    {getNavButtons()}
+		    {getNavButtons(navButtons)}
 
 		    <a className="nav-button profile-icon" href="#"><ProfileIcon /></a>
 
@@ -32,25 +38,62 @@ export default function Navbar() {
 			clickHandler={()=>{setHamburgerIsPressed(prev => !prev)}}
 		    />
 
-		    { hamburgerIsPressed && createPortal(
-			<div className="mobile-menu">
-			    {getNavButtons(()=>setHamburgerIsPressed(false))}
-			    <a href="#" className="nav-button" onClick={()=>setHamburgerIsPressed(false)}>My Profile</a>
-			</div>,
+		    { createPortal(
+			<AnimatePresence mode="wait">
+			    {hamburgerIsPressed && (
+			    <motion.div 
+			    className="mobile-menu"
+			    initial={{ y: "-100%"}}
+			    animate={{ y: 0 }}
+			    exit={{ y: "-100%"}}
+			    transition={{ duration: 0.5, ease:"easeIn"}}
+				>
+				{getNavButtons(navButtons, iconReplacements, ()=>{setHamburgerIsPressed(false)})}
+			    </motion.div>)}
+			</AnimatePresence>
+			,
 			document.getElementById("mobile-nav-portal") ?? document.body)
 		    }
 
 		</section>
-	    </nav>
+	    </motion.nav>
 	    <div id="mobile-nav-portal"></div>
 	</>
     );
 }
 
-function getNavButtons(onNavigation?: () => void) {
-   return navButtons.map((item, index) => 
-			<a key={index} className="nav-button" href={item[1]} onClick={onNavigation}>{item[0]}</a>
-		    )
+function getNavButtons(
+    itemsToAlwaysRender: Array<Array<string>>, 
+    itemsToRenderInMobile?: Array<Array<string>>,
+    onNavigation?: () => void) {
+	return (
+	    <>
+		{getAnchorsFromTwoDimArray(itemsToAlwaysRender, onNavigation=onNavigation)}
+		{(itemsToRenderInMobile) && getAnchorsFromTwoDimArray(itemsToRenderInMobile, onNavigation)}
+	    </>	
+	)
+}
+
+function getAnchorsFromTwoDimArray(array: Array<Array<string>>, onNavigation?: ()=>void){
+    return (
+	<>
+	{array.map((item, index) => 
+	    <a 
+			    key={index} 
+			    className="nav-button" 
+			    href={item[1]} 
+			    onClick={onNavigation}>
+				<motion.span
+				    className="clickable-surface"
+				    whileTap={{ scale: 0.8 }}
+				    transition={{ type: "spring" }}
+				>
+				    {item[0]}
+				</motion.span>
+			</a>
+		  )}
+	</>
+    )
 }
 
 
