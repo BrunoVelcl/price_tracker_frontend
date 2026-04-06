@@ -2,18 +2,33 @@
 
 :root {
     --color: var(--euro-yellow);
-    --bacground-gradient: linear-gradient(var(--electric-blue) 10%, var(--light-electric-blue) , var(--electric-blue) 80%);
+    --background-color: var(--electric-blue);
+    --background-color-gradient: var(--light-electric-blue);
+    --bacground-gradient: linear-gradient(var(--background-color) 10%, 
+	var(--background-color-gradient), 
+	var(--background-color) 80%);
     --button-hover-background: rgb(from var(--color) r g b / 0.1);
-
+    --hamburger-color: var(--secondary-dark-text-color);
+    --hamburger-active-color: var(--admiral);
+    
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --color: var(--argent);
-        --bacground-gradient: linear-gradient(var(--black) 10%, var(--retro-black) , var(--black) 80%);
-	--button-hover-background: rgb(from var(--color) r g b / 0.3);
+	--background-color: var(--black);
+	--background-color-gradient: var(--retro-black);
+        --button-hover-background: rgb(from var(--color) r g b / 0.3);
+	--hamburger-color: var(--color);
+	--hamburger-active-color: var(--secondary-dark-bg-color);
 
     }
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
 }
 
 a {
@@ -22,6 +37,7 @@ a {
 }
 
 nav {
+    z-index: 1;
     width: 100vw;
     margin-left: calc(50% - 50vw);
     background: var(--bacground-gradient);    
@@ -70,4 +86,40 @@ nav {
 }
 .nav-button:hover {
     background: var(--button-hover-background);
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (width < 720px) {
+    
+    #mobile-nav-portal {
+	display: grid;
+	z-index: 1;
+	width: 50%;
+    }
+
+    section {
+	.profile-icon,
+	.nav-button {
+	    display: none;
+	}
+    }
+
+    .hamburger {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	margin: 0 1rem 0 1rem;
+	color: var(--hamburger-color);
+   }
+     .isActive {
+	svg {
+	    background: var(--hamburger-active-color);
+	    border-radius: 20%;
+	}
+    }
 }

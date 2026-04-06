@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 export default function App(){
     return(
 	<>
-	    {Navbar()}	    
+	    <Navbar />	
 	    <h1>Hello World</h1>
 	</>
     );
