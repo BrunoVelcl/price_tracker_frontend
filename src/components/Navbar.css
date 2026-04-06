@@ -4,7 +4,7 @@
     --color: var(--euro-yellow);
     --background-color: var(--electric-blue);
     --background-color-gradient: var(--light-electric-blue);
-    --bacground-gradient: linear-gradient(var(--background-color) 10%, 
+    --background-gradient: linear-gradient(var(--background-color) 10%, 
 	var(--background-color-gradient), 
 	var(--background-color) 80%);
     --button-hover-background: rgb(from var(--color) r g b / 0.1);
@@ -40,7 +40,7 @@ nav {
     z-index: 1;
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    background: var(--bacground-gradient);    
+    background: var(--background-gradient);    
     color: var(--color);
     display: flex;
     flex-flow: row nowrap;
@@ -95,9 +95,30 @@ nav {
 @media (width < 720px) {
     
     #mobile-nav-portal {
-	display: grid;
+	position:fixed;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: end;
+	align-items: center;
 	z-index: 1;
-	width: 50%;
+	width: 100%;
+	
+	.mobile-menu {
+	    width: 50%;
+	    border-left: thick double var(--background-color);
+	    border-bottom: thick double var(--background-color);
+	    background: var(--background-color-gradient);
+	    .nav-button {
+		background: var(--background-gradient);
+		margin: 0;
+		padding: 1rem 0 1rem 0;
+		width: 100%;
+		border-bottom: solid 2px var(--background-color-gradient);
+	    }
+	    .nav-button:last-child {
+		border: none;
+	    }
+	}
     }
 
     section {

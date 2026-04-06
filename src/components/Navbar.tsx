@@ -22,11 +22,21 @@ export default function Navbar() {
 		    <a href="#"><h1>Shoping Lista</h1></a>
 		</section>
 		<section>
+
 		    {getNavButtons()}
+
 		    <a className="nav-button profile-icon" href="#"><ProfileIcon /></a>
-		    <HamburgerButton isPressed={hamburgerIsPressed} clickHandler={()=>{setHamburgerIsPressed(prev => !prev)}}/>
+
+		    <HamburgerButton 
+			isPressed={hamburgerIsPressed} 
+			clickHandler={()=>{setHamburgerIsPressed(prev => !prev)}}
+		    />
+
 		    { hamburgerIsPressed && createPortal(
-			<div className="mobile-menu">{getNavButtons()}</div>, document.getElementById("mobile-nav-portal") ?? document.body)}
+			<div className="mobile-menu">{getNavButtons(()=>setHamburgerIsPressed(false))}</div>,
+			    document.getElementById("mobile-nav-portal") ?? document.body)
+		    }
+
 		</section>
 	    </nav>
 	    <div id="mobile-nav-portal"></div>
@@ -34,9 +44,9 @@ export default function Navbar() {
     );
 }
 
-function getNavButtons() {
+function getNavButtons(onNavigation?: () => void) {
    return navButtons.map((item, index) => 
-			<a key={index} className="nav-button" href={item[1]}>{item[0]}</a>
+			<a key={index} className="nav-button" href={item[1]} onClick={onNavigation}>{item[0]}</a>
 		    )
 }
 
