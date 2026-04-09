@@ -2,7 +2,7 @@ import "./Navbar.css";
 import Logo from "./../assets/monochrome_logo";
 import ProfileIcon from "./../assets/profile_icon";
 import HamburgerButton from "./buttons/hamburger";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -15,13 +15,26 @@ const navButtons = [
 const iconReplacements = [["Moj profil", "#"], ["Link", "#"]];
 
 export default function Navbar() {
+    const [isActive, setIsActive] = useState(true);
+    const scrollPos = useRef(0);
+
+    useEffect(()=> {
+	const scrollListener = () => {
+	    const currentY = window.scrollY;
+	    setIsActive(currentY < scrollPos.current || currentY < 9);
+	    scrollPos.current = currentY;
+	}
+
+	window.addEventListener("scroll", scrollListener, {passive:true});
+	return () => window.removeEventListener("scroll", scrollListener);
+    }, [])
 
     const [hamburgerIsPressed, setHamburgerIsPressed] = useState(false); 
     return (
 	<>
 	    <motion.nav 
 		initial={{ y: -30 }}
-		animate={{ y: 0 }}
+		animate={{ y: isActive ? 0 : "-100%" }}
 		transition={{ duration: 0.5, ease:"easeOut" }}>
 		<section>
 		    <Logo />
@@ -77,23 +90,25 @@ function getNavButtons(
 function getAnchorsFromTwoDimArray(array: Array<Array<string>>, onNavigation?: ()=>void){
     return (
 	<>
-	{array.map((item, index) => 
-	    <a 
-			    key={index} 
-			    className="nav-button" 
-			    href={item[1]} 
-			    onClick={onNavigation}>
-				<motion.span
-				    className="clickable-surface"
-				    whileTap={{ scale: 0.8 }}
-				    transition={{ type: "spring" }}
-				>
-				    {item[0]}
-				</motion.span>
-			</a>
-		  )}
+	    {array.map((item, index) => 
+		<a 
+		    key={index} 
+		    className="nav-button" 
+		    href={item[1]} 
+		    onClick={onNavigation}>
+			<motion.span
+			    className="clickable-surface"
+			    whileTap={{ scale: 0.8 }}
+			    transition={{ type: "spring" }}
+			>
+			    {item[0]}
+			</motion.span>
+		</a>
+	    )}
 	</>
     )
 }
+
+
 
 
