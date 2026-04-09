@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import Logo from "./../assets/monochrome_logo";
 import ProfileIcon from "./../assets/profile_icon";
-import HamburgerButton from "./buttons/hamburger";
+import HamburgerButton from "./buttons/Hamburger";
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
