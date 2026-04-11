@@ -1,12 +1,12 @@
+import "./App.css";
 import Navbar from "./components/Navbar";
-import LoremIpsum from "./components/temp/LoremIpsum";
+import Login from "./components/Login"
 
 export default function App(){
     return(
 	<>
 	    <Navbar />	
-	    <h1>Hello World!</h1>
-	   <LoremIpsum /> 
+	    <Login />
 	</>
     );
 }

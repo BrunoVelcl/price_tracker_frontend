@@ -35,7 +35,9 @@ export default function Navbar() {
 	    <motion.nav 
 		initial={{ y: -30 }}
 		animate={{ y: isActive ? 0 : "-100%" }}
-		transition={{ duration: 0.5, ease:"easeOut" }}>
+		transition={{ duration: 0.5, ease:"easeOut" }}
+		>
+		<div className="portal-anchor">
 		<section>
 		    <Logo />
 		    <a href="#"><h1>Shoping Lista</h1></a>
@@ -69,8 +71,9 @@ export default function Navbar() {
 		    }
 
 		</section>
+		</div>
+		<div id="mobile-nav-portal"></div>
 	    </motion.nav>
-	    <div id="mobile-nav-portal"></div>
 	</>
     );
 }

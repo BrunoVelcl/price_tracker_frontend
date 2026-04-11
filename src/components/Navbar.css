@@ -39,14 +39,23 @@ a {
 nav {
     position:fixed;
     top: 0px;
-    z-index: 2;
+    z-index: 1;
     width: 100vw;
-    margin-left: calc(50% - 50vw);
-    background: var(--background-gradient);    
-    color: var(--color);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+
+}
+	
+.portal-anchor {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: relative;
+    background: var(--background-gradient);    
+    color: var(--color);
 
     section {
 	display: flex;
@@ -64,12 +73,12 @@ nav {
 	}
     }
 }
-	
+
 .nav-logo,
 .profile-icon {
     color: var(--color);
     height: 80%;
-    width: 2rem;
+    width: 4rem;
     padding-right: 1rem;
     padding-left: 1rem;
 }
@@ -106,8 +115,9 @@ nav {
 @media (width < 720px) {
 
     #mobile-nav-portal {
-	z-index: 1;
-	position:fixed;
+	z-index: -1;
+	position: absolute;
+	top: 100%;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: end;
@@ -157,3 +167,4 @@ nav {
 	}
     }
 }
+
