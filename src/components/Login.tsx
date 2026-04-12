@@ -1,4 +1,5 @@
 import "./Login.css";
+import "./buttons/buttons.css";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -59,6 +60,7 @@ export default function Login() {
 		<button type="submit" style={{display: "none"}} />
 		<span>Prijavi se</span>
 	    </form>
+	    <a className="button push" href="">Registracija</a>
 	</>
     );
 }

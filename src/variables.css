@@ -37,6 +37,10 @@
     --main-light-text-color: var(--black);
     --secondary-light-text-color: var(--atomic-black);
     --tertiary-light-text-color: var(--retro-black);
+    --light-shadow-color: var(--dark-cool-gray);
+    --border-color: var(--black);
+    --light-button-text-color: var(--euro-yellow);
+    --main-light-button-background-color: var(--electric-blue);
 
     --main-dark-bg-color: var(--atomic-black);
     --secondary-dark-bg-color: var(--dark-cool-gray);
@@ -44,6 +48,9 @@
     --main-dark-text-color: var(--white);
     --secondary-dark-text-color: var(--pale-gray);
     --tertiary-dark-text-color: var(--argent);
+    --dark-shadow-color: var(--atomic-black);
+    --dark-button-text-color: var(--metalic-gray);
+    --main-dark-button-background-color: var(--carbon-black);
 
     /*Text variables*/
 
