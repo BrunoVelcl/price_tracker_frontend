@@ -1,6 +1,7 @@
 export default function LoremIpsum() {
     return (
 	<>
+	    <div className="animate-on-navigation">
 	    <article>
 		<section>
 		    <p>
@@ -90,6 +91,7 @@ Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae phar
 		    </p>
 		</section>
 	    </article>
+	</div>   
 	</>
     );
 }

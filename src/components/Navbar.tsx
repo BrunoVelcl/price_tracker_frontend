@@ -1,18 +1,19 @@
-import "./Navbar.css";
-import Logo from "./../assets/monochrome_logo";
-import ProfileIcon from "./../assets/profile_icon";
-import HamburgerButton from "./buttons/Hamburger";
-import { useState, useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
-import { AnimatePresence, motion } from "motion/react";
+import './Navbar.css'
+import Logo from './../assets/monochrome_logo'
+import ProfileIcon from './../assets/profile_icon'
+import HamburgerButton from './buttons/Hamburger'
+import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
+import { AnimatePresence, motion } from 'motion/react'
+import { NavLink } from 'react-router'
+import ExitAnimationLink from './ExitAnimationLink'
 
 const navButtons = [
-    ["Login", "#"],
-    ["Register", "#"],
-    ["List", "#"]
+    ["Login", "/login"],
+    ["Lorem", "/lorem"],
 ];
 
-const iconReplacements = [["Moj profil", "#"], ["Link", "#"]];
+const iconReplacements = [["Moj profil", "/profile"]];
 
 export default function Navbar() {
     const [isActive, setIsActive] = useState(true);
@@ -40,13 +41,13 @@ export default function Navbar() {
 		<div className="portal-anchor">
 		<section>
 		    <Logo />
-		    <a href="#"><h1>Shoping Lista</h1></a>
+		    <NavLink to="/" end><h1>Shoping Lista</h1></NavLink>
 		</section>
 		<section>
 
 		    {getNavButtons(navButtons)}
 
-		    <a className="nav-button profile-icon" href="#"><ProfileIcon /></a>
+		    <ExitAnimationLink to="/profile" className="nav-button profile-icon"><ProfileIcon /></ExitAnimationLink>
 
 		    <HamburgerButton 
 			isPressed={hamburgerIsPressed} 
@@ -94,10 +95,10 @@ function getAnchorsFromTwoDimArray(array: Array<Array<string>>, onNavigation?: (
     return (
 	<>
 	    {array.map((item, index) => 
-		<a 
+		<ExitAnimationLink
+		    to={item[1]} 
 		    key={index} 
 		    className="nav-button" 
-		    href={item[1]} 
 		    onClick={onNavigation}>
 			<motion.span
 			    className="clickable-surface"
@@ -106,7 +107,7 @@ function getAnchorsFromTwoDimArray(array: Array<Array<string>>, onNavigation?: (
 			>
 			    {item[0]}
 			</motion.span>
-		</a>
+		</ExitAnimationLink>
 	    )}
 	</>
     )

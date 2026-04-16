@@ -1,9 +1,9 @@
-import "./Login.css";
-import "./buttons/buttons.css";
-import { type SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import './Login.css'
+import './buttons/buttons.css'
+import { type SubmitHandler, useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
 
 const schema = z.object({
     email: z.email("Unesite važeći email"),
@@ -33,7 +33,10 @@ export default function Login() {
 
     return (
 	<>
-	    <form 
+	    <div 
+	    className="animate-on-navigation"
+	    >
+	    <form
 	    onClick={handleSubmit(onSubmit)} 
 	    onSubmit={handleSubmit(onSubmit)} 
 	    className={isLogingIn ? activeClass : baseClass}
@@ -59,8 +62,9 @@ export default function Login() {
 		{/*Hidden button to enable keyboard submisions*/}
 		<button type="submit" style={{display: "none"}} />
 		<span>Prijavi se</span>
+		<a className="button push" href="" onClick={e => e.stopPropagation()}>Registracija</a>
 	    </form>
-	    <a className="button push" href="">Registracija</a>
-	</>
+	    </div>
+	    </>
     );
 }

@@ -96,6 +96,9 @@ nav {
 .nav-button:hover {
     background: var(--button-hover-background);
 }
+.nav-button.active {
+    background-color: red;
+}
 
 .hamburger {
     display: none;

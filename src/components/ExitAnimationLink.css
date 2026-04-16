@@ -1,0 +1,27 @@
+.animate-on-navigation {
+    animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+    from {
+	translate: 100vw 0;
+    }
+
+    to {
+	translate: 0 0
+    }
+}
+
+.animate-on-navigation.animate-exit {
+    animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-out {
+    from {
+	translate: 0 0;
+    }
+
+    to {
+	translate: -100vw 0;
+    }
+}

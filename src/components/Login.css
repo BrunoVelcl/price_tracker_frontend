@@ -27,7 +27,7 @@
     min-width: 720px;
     background-color: var(--background-color);
     border: solid 2px var(--border-color); 
-    padding: 5rem 0 5rem 0;
+    padding: 5rem 0 3rem 0;
     border-radius: 100px;
     box-shadow: 10px 10px 5px 5px var(--shadow-color),
 		inset 0 0 0 0 var(--shadow-color);
@@ -77,10 +77,6 @@
     pointer-events: none;
 }
 
-.registration-link {
-    margin-top: 2rem;
-}
-
 @media (width < 1080px) {
     .login-form {
 	width: 50%;
@@ -94,4 +90,3 @@
 	min-width: 256px;
     }
 }
-
