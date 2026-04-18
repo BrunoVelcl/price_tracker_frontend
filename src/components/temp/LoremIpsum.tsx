@@ -1,7 +1,9 @@
+import ExitAnimationLink from "../ExitAnimationLink"
+
 export default function LoremIpsum() {
     return (
 	<>
-	    <div className="animate-on-navigation">
+	    <div id="lorem" className="animate-on-navigation">
 	    <article>
 		<section>
 		    <p>
@@ -91,6 +93,7 @@ Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae phar
 		    </p>
 		</section>
 	    </article>
+	<ExitAnimationLink to="/non_existing" >Broken Link</ExitAnimationLink>	
 	</div>   
 	</>
     );

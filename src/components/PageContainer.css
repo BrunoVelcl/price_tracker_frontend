@@ -1,0 +1,27 @@
+@import "./../variables.css";
+
+.resource-container {
+   --background-color: var(--concrete);
+   --border-color: var(--electric-blue);
+   --shadow-color: var(--dark-cool-gray);
+}
+
+@media (prefers-color-scheme: dark) {
+    .resource-container {
+	--background-color: var(--carbon-black);
+	--border-color: var(--main-dark-bg-color);
+	--shadow-color: var(--atomic-black);
+    }
+}
+
+.resource-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    border-radius: 100px;
+    padding: 2rem;
+    background-color: var(--background-color);
+    box-shadow: 0.5rem 0.5rem 0.25rem 0.25rem var(--shadow-color);
+}

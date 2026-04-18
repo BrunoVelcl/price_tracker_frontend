@@ -6,9 +6,9 @@ import { useNavigate, useLocation } from "react-router";
 interface Props
  {
     to: string;
-    className: string;
+    className?: string;
     onClick?: (() => void);
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 export default function ExitAnimationLink({to, className, onClick, children}: Props) {

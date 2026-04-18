@@ -1,0 +1,10 @@
+#not-found {
+    h1 {
+	font-size: 4rem;
+    }
+
+    p {
+	font-size: 2rem;
+	padding: 0 2rem 0 2rem;
+    }
+}
