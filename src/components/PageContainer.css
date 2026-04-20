@@ -4,6 +4,8 @@
    --background-color: var(--concrete);
    --border-color: var(--electric-blue);
    --shadow-color: var(--dark-cool-gray);
+   --input-bg-color: var(--white);
+   --text-color: var(--black);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -11,10 +13,14 @@
 	--background-color: var(--carbon-black);
 	--border-color: var(--main-dark-bg-color);
 	--shadow-color: var(--atomic-black);
+        --input-bg-color: var(--metalic-gray);
+	--text-color: var(--metalic-gray);
     }
 }
 
 .resource-container {
+    max-width: 80%;
+    min-width: 720px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -22,6 +28,30 @@
     border: 2px solid var(--border-color);
     border-radius: 100px;
     padding: 2rem;
+    color: var(--text-color); 
     background-color: var(--background-color);
     box-shadow: 0.5rem 0.5rem 0.25rem 0.25rem var(--shadow-color);
+}
+
+@media (width < 1080px) {
+    .resource-container {
+	width: 50%;
+	min-width: 720px;
+    }
+}
+
+@media (width < 720px) {
+    .resource-container {
+	width: 95%;
+	min-width: 256px;
+    }
+}
+
+.resource-container input {
+    background: var(--input-bg-color);
+}
+
+.resource-container input:focus {
+    outline: solid 2px var(--border-color);
+    box-shadow: 0 0 2rem var(--shadow-color);
 }

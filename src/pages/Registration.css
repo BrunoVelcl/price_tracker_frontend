@@ -1,0 +1,54 @@
+@import "./../variables.css";
+
+#registration {
+   
+    max-width: 85%;
+
+    h1 {
+	width: 100%;
+	font-size: 3rem;
+	margin: 2rem;
+    }
+
+    form {
+	display:flex;
+	flex-flow: column nowrap;
+	width: 100%;
+
+	.form-field {
+	margin: 0.5rem;
+	display: grid;
+	grid-template-columns: 30% 70%;
+
+	    label {
+		font-weight: bold;
+	    }
+
+	    input {
+		width: 95%;
+		height: 2rem;
+		font-size: 1rem;
+		border-radius: 15px;
+		padding: 0 1rem 0 1rem;
+	    }
+	    input:focus {
+		transform: scale(1.02);
+		transition: all 0.2s ease-in;
+	    }
+
+	    .error-message {
+		color: var(--error-text);
+		grid-column: 2;
+		margin-top: 0.2rem;
+		margin-bottom: 0.4rem;
+		height: 0.5rem;
+
+	    }
+	}
+
+	button {
+	    width: 50%;
+	    align-self: end;
+	}
+    }
+}

@@ -7,7 +7,7 @@ interface Props
  {
     to: string;
     className?: string;
-    onClick?: (() => void);
+    onClick?: () => void;
     children?: ReactNode;
 }
 
@@ -15,9 +15,11 @@ export default function ExitAnimationLink({to, className, onClick, children}: Pr
    const navigate = useNavigate();
    const location = useLocation();
 
-   const handleClick = async () => {
-	
-	onClick?.();	
+   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+
+	e.stopPropagation();
+
+       onClick?.();	
 
 	if ( location.pathname === to ) {
 	    return;
@@ -30,7 +32,7 @@ export default function ExitAnimationLink({to, className, onClick, children}: Pr
 	navigate(to);
   }
 
-  return <button className={className} onClick={handleClick}>{children}</button>
+  return <button type="button" className={className} onClick={handleClick}>{children}</button>
    
 }
 

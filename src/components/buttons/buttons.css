@@ -4,6 +4,7 @@
     --main-background-color: var(--main-light-button-background-color);
     --main-text-color: var(--light-button-text-color);
     --shadow-color: var(--light-shadow-color);
+    --button-working-color: var(--spring-sky);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -11,6 +12,7 @@
 	--main-background-color: var(--main-dark-button-background-color);
 	--main-text-color: var(--dark-button-text-color);
 	--shadow-color: var(--dark-shadow-color);
+	--button-working-color: var(--concrete);
     }
 }
 
@@ -27,11 +29,48 @@
 		inset 0 0 0 var(--shadow-color);
     transition: all 0.5s ease-in-out;
 }
-
 .button.push:active {
     box-shadow: 0 0 0 var(--shadow-color),
 		inset 5px 5px 10px var(--shadow-color);
     transform: scale(0.95);
 }
+.button.push:disabled {
+    box-shadow: 0 0 0 var(--shadow-color),
+		inset 5px 5px 10px var(--shadow-color);
+    transform: scale(0.95);
+}
 
+.button.call {
+    margin: 2rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border: solid 2px var(--border-color); 
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: rgb(from var(--concrete) r g b / 70%);
+    color: var(--atomic-black);
+    box-shadow: 5px 5px 10px var(--shadow-color);
+    transition: all 0.5s ease-in-out;
+}
+.button.call:active {
+    transform: scale(0.96);
+    box-shadow: none;
+}
+.button.call:disabled {
+    transform: scale(0.96);
+    box-shadow: none;
+    background: repeating-radial-gradient(
+	rgb(from var(--button-working-color) r g b / 70%) 0px,
+	rgb(from var(--button-working-color) r g b / 60%) 5px,
+	rgb(from var(--button-working-color) r g b / 50%) 15px,
+	rgb(from var(--button-working-color) r g b / 40%) 20px,
+	rgb(from var(--button-working-color) r g b / 30%) 30px
+	);
+    background-size: 800% 100%;
+    animation: calling-api 60s infinite;
+}
 
+@keyframes calling-api {
+    0% { background-position: 0% 50%}
+    100% { background-position: 150% 50% }
+}
