@@ -1,21 +1,23 @@
 import './Navbar.css'
-import Logo from './../assets/monochrome_logo'
-import ProfileIcon from './../assets/profile_icon'
-import HamburgerButton from './buttons/Hamburger'
+import Logo from './../../assets/monochrome_logo'
+import ProfileIcon from './../../assets/profile_icon'
+import HamburgerButton from './../buttons/Hamburger'
 import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { NavLink } from 'react-router'
-import ExitAnimationLink from './ExitAnimationLink'
+import ExitAnimationLink from './../ExitAnimationLink'
+import AnchorsFromTwoDimArray from './AnchorsFromTwoDimArray' 
 
 const navButtons = [
-    ["Login", "/login"],
+    ["loginButton", "/login"],
     ["Lorem", "/lorem"],
 ];
 
 const iconReplacements = [["Moj profil", "/profile"]];
 
 export default function Navbar() {
+
     const [isActive, setIsActive] = useState(true);
     const scrollPos = useRef(0);
 
@@ -85,33 +87,14 @@ function getNavButtons(
     onNavigation?: () => void) {
 	return (
 	    <>
-		{getAnchorsFromTwoDimArray(itemsToAlwaysRender, onNavigation=onNavigation)}
-		{(itemsToRenderInMobile) && getAnchorsFromTwoDimArray(itemsToRenderInMobile, onNavigation)}
+		<AnchorsFromTwoDimArray anchorArray={itemsToAlwaysRender} onNavigation={onNavigation} />
+		{(itemsToRenderInMobile) && <AnchorsFromTwoDimArray anchorArray={itemsToRenderInMobile} onNavigation={onNavigation} />
+}
 	    </>	
 	)
 }
 
-function getAnchorsFromTwoDimArray(array: Array<Array<string>>, onNavigation?: ()=>void){
-    return (
-	<>
-	    {array.map((item, index) => 
-		<ExitAnimationLink
-		    to={item[1]} 
-		    key={index} 
-		    className="nav-button" 
-		    onClick={onNavigation}>
-			<motion.span
-			    className="clickable-surface"
-			    whileTap={{ scale: 0.8 }}
-			    transition={{ type: "spring" }}
-			>
-			    {item[0]}
-			</motion.span>
-		</ExitAnimationLink>
-	    )}
-	</>
-    )
-}
+
 
 
 

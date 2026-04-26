@@ -1,0 +1,13 @@
+{
+    "pageDoesNotExist": "Stranica ne postoji",
+    "enterValidEmail": "Unesite važeći email",
+    "passwordToShort": "Lozinka mora sadržavati barem 8 znakova",
+    "passwordToLong": "Lozinka ne smije sadržavati više od 32 znaka",
+    "passwordMissmatch": "Lozinke moraju biti jednake",
+    "registrationPageHeader": "Registracija",
+    "emailFieldLabel": "Email",
+    "passwordFieldLabel": "Lozinka",
+    "passwordConfirmationFieldLabel": "Potvrdite Lozinku",
+    "registerButton": "Registriraj",
+    "loginButton": "Prijavi se"
+}

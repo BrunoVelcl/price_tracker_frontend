@@ -5,16 +5,19 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
 import ExitAnimationLink from './ExitAnimationLink'
+import { useTranslation } from 'react-i18next'
 
 const schema = z.object({
-    email: z.email("Unesite važeći email"),
-    password: z.string().min(8, "Lozinka mora sadržavati barem 8 znakova"),
+    email: z.email("enterValidEmail"),
+    password: z.string().min(8, "passwordToShort"),
 });
 
 
 type FormFields = z.infer<typeof schema>;
 
 export default function Login() {
+    const { t } = useTranslation();
+
     const { 
 	register, 
 	handleSubmit, 
@@ -45,23 +48,23 @@ export default function Login() {
 			{...register("email")} 
 			disabled={isLogingIn} 
 			onClick={e => e.stopPropagation()} 
-			placeholder="Email"
+			placeholder={t("emailFieldLabel")}
 			/>
-			{errors.email && <div className="error-message">{errors.email?.message}</div>}
+			{errors.email && <div className="error-message">{errors.email?.message && t(errors.email.message)}</div>}
 		    </div>
 		    <div className="form-field">
 			<input 
 			{...register("password")} 
 			disabled={isLogingIn} 
 			onClick={e => e.stopPropagation()}
-			placeholder="Lozinka"
+			placeholder={t("passwordFieldLabel")}
 			/>
-			{errors.password && <div className="error-message">{errors.password?.message}</div>}
+			{errors.password && <div className="error-message">{errors.password?.message && t(errors.password.message)}</div>}
 		    </div>
 		    {/*Hidden button to enable keyboard submisions*/}
 		    <button type="submit" style={{display: "none"}} />
-		    <span>Prijavi se</span>
-		    <ExitAnimationLink to="/registration" className="button push" >Registracija</ExitAnimationLink>
+		    <span>{t("loginButton")}</span>
+		    <ExitAnimationLink to="/registration" className="button push" >{t("registrationPageHeader")}</ExitAnimationLink>
 		</form>
 	    </div>
 	    </>

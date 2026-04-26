@@ -8,6 +8,7 @@ import Registration from './pages/Registration.tsx'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router'
 import LoremIpsum from './components/temp/LoremIpsum.tsx'
+import './util/i18n/i18n'
 
 const router = createBrowserRouter([
     {
