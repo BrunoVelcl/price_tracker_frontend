@@ -1,0 +1,14 @@
+{
+    "pageDoesNotExist": "Page does not exist",
+    "enterValidEmail": "Enter valid email",
+    "passwordToShort": "Password must be at least 8 characters long",
+    "passwordToLong": "Password can't contain more than 32 characters",
+    "passwordMissmatch": "Passwords don't match",
+    "registrationPageHeader": "Registration",
+    "emailFieldLabel": "Email",
+    "passwordFieldLabel": "Password",
+    "passwordConfirmationFieldLabel": "Repeat Password",
+    "registerButton": "Register",
+    "loginButton": "Login",
+    "myProfile": "My Profile"
+}

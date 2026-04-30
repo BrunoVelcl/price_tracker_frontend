@@ -8,13 +8,14 @@ import { AnimatePresence, motion } from 'motion/react'
 import { NavLink } from 'react-router'
 import ExitAnimationLink from './../ExitAnimationLink'
 import AnchorsFromTwoDimArray from './AnchorsFromTwoDimArray' 
+import LanguageSelector from '../buttons/LanguageSelector'
 
 const navButtons = [
     ["loginButton", "/login"],
     ["Lorem", "/lorem"],
 ];
 
-const iconReplacements = [["Moj profil", "/profile"]];
+const iconReplacements = [["myProfile", "/profile"]];
 
 export default function Navbar() {
 
@@ -46,6 +47,8 @@ export default function Navbar() {
 		    <NavLink to="/" end><h1>Shoping Lista</h1></NavLink>
 		</section>
 		<section>
+		    
+		    <LanguageSelector />
 
 		    {getNavButtons(navButtons)}
 

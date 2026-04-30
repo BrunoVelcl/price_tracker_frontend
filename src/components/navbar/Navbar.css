@@ -71,6 +71,10 @@ nav {
 	h1:hover {
 	    transform: scale(1.05);
 	}
+
+	.lang-button {
+	    padding: 0 0.5rem 0 0.5rem;
+	}
     }
 }
 
@@ -96,8 +100,42 @@ nav {
 .nav-button:hover {
     background: var(--button-hover-background);
 }
-.nav-button.active {
-    background-color: red;
+
+.lang-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    svg {
+	display: block;
+	overflow: hidden;
+    }
+}
+.lang-button:hover {
+    background: var(--button-hover-background);
+}
+
+@keyframes pop-in {
+    0% { 
+	opacity: 0;
+	transform: scale(0.1);
+    }
+
+    65% {
+	opacity: 1;
+	transform: scale(1.2);
+    }
+    100% {
+	opacity: 1;
+	transform: scale(1);
+    }
+}
+.select-button {
+   animation: pop-in 0.3s ease-in; 
 }
 
 .hamburger {

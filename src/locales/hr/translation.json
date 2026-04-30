@@ -9,5 +9,6 @@
     "passwordFieldLabel": "Lozinka",
     "passwordConfirmationFieldLabel": "Potvrdite Lozinku",
     "registerButton": "Registriraj",
-    "loginButton": "Prijavi se"
+    "loginButton": "Prijavi se",
+    "myProfile": "Moj Profil"
 }
