@@ -1,4 +1,4 @@
-@import "../variables.css";
+@import "../../variables.css";
 
 .selected-store {
     --address-bg-color: var(--main-light-bg-color);

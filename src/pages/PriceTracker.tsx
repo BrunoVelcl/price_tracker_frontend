@@ -1,4 +1,4 @@
-import StoreSelector from "../components/StoreSelector"
+import StoreSelector from "../components/store_selector/StoreSelector.tsx"
 
 export default function PriceTracker() {
     return (

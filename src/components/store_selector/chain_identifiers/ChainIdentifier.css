@@ -1,0 +1,46 @@
+.chain-identifier {
+    --white: #FFFFFF;
+    --lidl-bg-color: #0050AA;
+    --lidl-text-color: #FFF000;
+    --kaufland-bg-color: #E10915;
+    --kaufland-text-color: var(--white);
+    --plodine-bg-color: #ED1C24;
+    --plodine-text-color: var(--white);
+    --spar-bg-color: #157946;
+    --spar-text-color:var(--white);
+    --studenac-bg-color: #FF6D00;
+    --studenac-text-color: #239B11;
+}
+
+.chain-identifier {
+    width: 8rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px 0 15px 0;
+    corner-shape: scoop;
+}
+
+.chain-identifier.lidl-identifier {
+    background-color: var(--lidl-bg-color);
+    color: var(--lidl-text-color);
+}
+
+.chain-identifier.kaufland-identifier {
+    background-color: var(--kaufland-bg-color);
+    color: var(--kaufland-text-color);
+}
+
+.chain-identifier.plodine-identifier {
+    background-color: var(--plodine-bg-color);
+    color: var(--plodine-text-color);
+}
+
+.chain-identifier.spar-identifier {
+    background-color: var(--spar-bg-color);
+    color: var(--spar-text-color);
+}
+
+.chain-identifier.studenac-identifier {
+    background-color: var(--studenac-bg-color);
+    color: var(--studenac-text-color);
+}

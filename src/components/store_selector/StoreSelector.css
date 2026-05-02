@@ -1,4 +1,4 @@
-@import "../variables.css";
+@import "../../variables.css";
 
 #store-selector {
     --arrow-color: var(--euro-blue);

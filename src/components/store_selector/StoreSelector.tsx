@@ -1,7 +1,7 @@
 import "./StoreSelector.css"
-import { type Store } from "../types/api.ts" 
+import { type Store } from "../../types/api.ts" 
 import { useState } from "react"
-import Arrow from "../assets/Arrow.tsx"
+import Arrow from "../../assets/Arrow.tsx"
 import SelectedStore from "./SelectedStore.tsx"
 
 /*Store for visuals*/
