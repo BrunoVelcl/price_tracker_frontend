@@ -1,0 +1,27 @@
+@import "../variables.css";
+
+.selected-store {
+    --address-bg-color: var(--main-light-bg-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .selected-store {
+	--address-bg-color: var(--main-dark-bg-color);
+
+    }
+}
+
+.selected-store {
+    display: flex;
+    flex-flow: row nowrap;
+	
+    .chain-identifier {
+	padding: 0 0.5rem 0 0.5rem;
+	background-color: blue;
+    }
+
+    .store-address {
+	padding: 0 0.5rem 0 0.5rem;
+	background-color: var(--address-bg-color);
+    }
+}

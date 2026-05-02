@@ -1,6 +1,16 @@
 @import "../variables.css";
 
 #store-selector {
+    --arrow-color: var(--euro-blue);
+}
+
+@media(prefers-color-scheme: dark) {
+    #store-selector {
+	--arrow-color: var(--atomic-black);
+    }
+}
+
+#store-selector {
     background-color: rgb(from var(--black) r g b / 0.2);
     align-self: start;
     height: 100%;
@@ -8,8 +18,28 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-	svg{
-	    height: 2rem;
-	    width: 2rem;
+	button {
+	    height: 100%;
+	    svg {
+		height: 2rem;
+		width: 2rem;
+		fill: var(--arrow-color);
+		transition: ease-in 0.3s;
+	    }
+	    svg.left {
+		transform: rotate(180deg);
+	    }
+
 	}
+	button:active {
+	    svg {
+		transform: scale(0.8);
+	    }
+	}
+
+    transition: ease-in 0.3s;
+}
+
+#store-selector:hover {
+    background-color: rgb(from var(--black) r g b / 0.3);
 }

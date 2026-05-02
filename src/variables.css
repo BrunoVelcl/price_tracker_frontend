@@ -28,6 +28,7 @@
     --euro-yellow: rgb(255,255,0);
     --metalic-orange: rgb(219,83,2);
     --crimson: rgb(220,20,60);
+    --guardsman-red: rgb(191, 0, 0);
 
     /*Bacground variables*/
 
@@ -51,6 +52,7 @@
     --dark-shadow-color: var(--atomic-black);
     --dark-button-text-color: var(--metalic-gray);
     --main-dark-button-background-color: var(--carbon-black);
+    
 
     /*Text variables*/
 

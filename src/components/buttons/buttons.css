@@ -3,16 +3,20 @@
 .button {
     --main-background-color: var(--main-light-button-background-color);
     --main-text-color: var(--light-button-text-color);
+    --alt-text-color: var(--white);
     --shadow-color: var(--light-shadow-color);
     --button-working-color: var(--spring-sky);
+    --danger-color: var(--guardsman-red);
 }
 
 @media (prefers-color-scheme: dark) {
     .button {
 	--main-background-color: var(--main-dark-button-background-color);
 	--main-text-color: var(--dark-button-text-color);
+	--alt-text-color: var(--atomic-black);
 	--shadow-color: var(--dark-shadow-color);
 	--button-working-color: var(--concrete);
+	--danger-color: var(--crimson);
     }
 }
 
@@ -73,4 +77,18 @@
 @keyframes calling-api {
     0% { background-position: 0% 50%}
     100% { background-position: 150% 50% }
+}
+
+.button.remove {
+    background-color: var(--danger-color);
+    color: var(--alt-text-color);
+    font-weight: bold;
+    height: 100%;
+    transition: 0.2s ease-in;
+    padding-right: 0.4rem;
+    padding-left: 1rem;
+    border-radius: 0 15px 15px 0;
+}
+.button.remove:active {
+    transform: scale(0.95);
 }
