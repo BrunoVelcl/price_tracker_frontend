@@ -10,5 +10,7 @@
     "passwordConfirmationFieldLabel": "Repeat Password",
     "registerButton": "Register",
     "loginButton": "Login",
-    "myProfile": "My Profile"
+    "myProfile": "My Profile",
+    "addStore": "Add Store",
+    "remove": "Remove"
 }

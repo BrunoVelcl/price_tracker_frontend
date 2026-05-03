@@ -13,6 +13,7 @@
 }
 
 .chain-identifier {
+    z-index: 3;
     width: 8rem;
     font-weight: bold;
     text-align: center;

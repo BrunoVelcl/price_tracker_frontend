@@ -10,5 +10,7 @@
     "passwordConfirmationFieldLabel": "Potvrdite Lozinku",
     "registerButton": "Registriraj",
     "loginButton": "Prijavi se",
-    "myProfile": "Moj Profil"
+    "myProfile": "Moj Profil",
+    "addStore": "Dodaj Trgovinu",
+    "remove": "Makni"
 }

@@ -11,35 +11,55 @@
 }
 
 #store-selector {
-    background-color: rgb(from var(--black) r g b / 0.2);
+    margin-top: 2rem;
     align-self: start;
     height: 100%;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-	button {
+	.store-selector-button {
+	    background-color: rgb(from var(--black) r g b / 0.2);
 	    height: 100%;
+	    transform: translateX(-42rem);
+	    transition: transform 0.3s ease-out;
 	    svg {
 		height: 2rem;
 		width: 2rem;
 		fill: var(--arrow-color);
-		transition: ease-in 0.3s;
+		transition: ease-out 0.3s;
 	    }
 	    svg.left {
 		transform: rotate(180deg);
 	    }
-
 	}
-	button:active {
+	.store-selector-button:hover {
+	    background-color: rgb(from var(--black) r g b / 0.3);
+	}
+	.store-selector-button:active {
 	    svg {
 		transform: scale(0.8);
 	    }
+	}
+	.store-selector-button.menu-open {
+	    transform: translateX(0);
 	}
 
     transition: ease-in 0.3s;
 }
 
-#store-selector:hover {
-    background-color: rgb(from var(--black) r g b / 0.3);
+.store-selector-surface {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    padding: 0 2rem 0 2rem;
+    transform: translateX(-42rem);
+    transition: transform 0.3s ease-out;
+    pointer-events: none;
+}
+
+.store-selector-surface.menu-open {
+    transform: translateX(0);
+    pointer-events: auto;
 }

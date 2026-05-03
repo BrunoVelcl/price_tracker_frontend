@@ -1,13 +1,15 @@
 @import "../../variables.css";
 
 .selected-store {
-    --address-bg-color: var(--main-light-bg-color);
+    --address-bg-color: var(--electric-blue);
+    --address-text-color: var(--concrete);
+    --danger-color: var(--guardsman-red);
 }
 
 @media (prefers-color-scheme: dark) {
     .selected-store {
 	--address-bg-color: var(--main-dark-bg-color);
-
+	--danger-color: var(--crimson);
     }
 }
 
@@ -15,13 +17,62 @@
     display: flex;
     flex-flow: row nowrap;
 	
-    .chain-identifier {
-	padding: 0 0.5rem 0 0.5rem;
-	background-color: blue;
-    }
-
     .store-address {
-	padding: 0 0.5rem 0 0.5rem;
 	background-color: var(--address-bg-color);
+	color: var(--address-text-color);
+	text-align: center;
+	width: 30rem;
+	overflow: hidden;
+	text-overflow: clip;
+	white-space: nowrap;
+	padding: 0 0.8rem 0 2.5rem;
+	margin-left: -2rem;
+	z-index: 2;
+	border-radius:  0 0 15px 0;
     }
+    .button.remove {
+	width: 6rem;
+	margin-left: -1rem;
+	transform: translateX(-5.5rem);
+	z-index: 1;
+	background-color: rgb(from var(--danger-color) r g b / 0.8);
+	color: var(--alt-text-color);
+	font-weight: bold;
+	height: 100%;
+	transition: 0.2s ease-in;
+	padding-right: 0.4rem;
+	padding-left: 1rem;
+	border-radius: 0 15px 15px 0;
+    }
+}
+
+.selected-store:hover {
+    .button.remove {
+	transform: translateX(0);
+    }
+    .button.remove:hover {
+	background-color: var(--danger-color);
+    }
+    .button.remove:active {
+	transform: scale(0.95);
+    }
+}
+
+.button.add-store {
+    margin-top: 2rem;
+    width: 38rem;
+    text-align: center;
+    font-weight: bold;
+    border: solid 2px;
+    border-radius: 15px 0 15px 0;
+    corner-shape: scoop;
+    transition: transform 0.3s ease-in;
+}
+
+.button.add-store:hover {
+    transform: scale(1.05);
+}
+
+.button.button.add-store:active {
+    transform: scale(0.95);
 }
