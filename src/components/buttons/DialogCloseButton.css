@@ -1,0 +1,48 @@
+@import "./../../variables.css";
+
+button.dialog-close {
+    --bg-color: var(--crimson);
+    --icon-color: var(--white);
+    --ridge-color: var(--black);
+}
+
+@media (prefers-color-scheme: dark) {
+    button.dialog-close {
+	--bg-color: var(--guardsman-red);
+	--icon-color: var(--concrete);
+	--ridge-color: var(--dark-cool-gray);
+    }
+}
+
+button.dialog-close {
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    align-self: end;
+    border-radius: 15px;
+    outline: ridge 4px var(--ridge-color);
+    transition: 0.3s ease-in;
+    
+	svg {
+	    width:80%;
+	    height:80%;
+	    color: var(--icon-color);
+	    transition: 0.3s ease-out;
+	}
+}
+
+button.dialog-close:hover {
+    background-color: rgb(from var(--bg-color) r g b / 0.8);
+}
+
+button.dialog-close:active {
+    svg{
+	transform: scale(0.95);
+    }
+}

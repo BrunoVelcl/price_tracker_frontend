@@ -5,3 +5,9 @@ export type Store = {
     address: string;
     chain: Chain;
 }
+
+export type Searchable = {
+    id: number;
+    text: string;
+    selected: boolean;
+}

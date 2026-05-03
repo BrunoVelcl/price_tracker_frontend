@@ -2,11 +2,13 @@
 
 #store-selector {
     --arrow-color: var(--euro-blue);
+    --menu-surface-bg-color: var(--metalic-gray);
 }
 
 @media(prefers-color-scheme: dark) {
     #store-selector {
 	--arrow-color: var(--atomic-black);
+	--menu-surface-bg-color: var(--charcoal);
     }
 }
 
@@ -49,6 +51,7 @@
 }
 
 .store-selector-surface {
+    background-color: var(--menu-surface-bg-color); 
     height: 100%;
     display: flex;
     flex-flow: row nowrap;
@@ -62,4 +65,10 @@
 .store-selector-surface.menu-open {
     transform: translateX(0);
     pointer-events: auto;
+}
+
+#store-search-dialog[open] {
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0  0 1rem;
 }
