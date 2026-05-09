@@ -1,6 +1,7 @@
 import "./SearchDialog.css"
 import { type Searchable } from "../types/api.ts"
-import DialogCloseButton from "./buttons/DialogCloseButton.tsx";
+import DialogCloseButton from "./buttons/DialogCloseButton.tsx"
+import DialogAcceptButton from "./buttons/DialogAcceptButton.tsx"
 
 interface Props {
     items: Array<Searchable>;
@@ -12,6 +13,7 @@ export default function SearchDialog( { items, alreadySelected, closeHandler }: 
     return(
 	<article className="search-dialog-window">
 	    <DialogCloseButton onClick={()=>closeHandler()} />
+	    <DialogAcceptButton onClick={()=>closeHandler()} />
 	    <div className="search-dialog">
 		<input className="search-term" type="text" />
 		{drawStores(items, alreadySelected)}
