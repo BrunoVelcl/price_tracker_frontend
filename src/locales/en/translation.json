@@ -12,5 +12,7 @@
     "loginButton": "Login",
     "myProfile": "My Profile",
     "addStore": "Add Store",
-    "remove": "Remove"
+    "remove": "Remove",
+    "searchStore": "Search for store",
+    "select": "Select"
 }

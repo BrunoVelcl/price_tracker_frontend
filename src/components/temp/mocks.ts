@@ -1,6 +1,6 @@
 import { type Store } from "../../types/api"
 
-export const mockSelectedStores: Array<number> = [13, 199, 1, 55];
+export const mockSelectedStores: Set<number> = new Set([13, 199, 1, 55]);
 
 export const mockStoreList: Array<Store> = 
 [

@@ -54,7 +54,7 @@
     background-color: var(--menu-surface-bg-color); 
     height: 100%;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: start;
     padding: 0 2rem 0 2rem;
     transform: translateX(-42rem);

@@ -1,0 +1,34 @@
+@import "../../variables.css";
+
+button.selectTickbox {
+    --inactive-bg-color: rgb(255 255 255 / 0.2);
+    --inactive-hover-bg-color: rgb(255 255 255 / 0.4);
+    --active-bg-color: var(--light-green);
+    --active-hover-bg-color: rgb(from var(--active-bg-color) calc(r - 10) calc(g - 10) calc(b - 10));
+}
+
+@media (prefers-color-scheme: dark) {
+    button.selectTickbox {
+	--active-bg-color: var(--dark-green);
+    }
+}
+
+button.selectTickbox {
+    background: var(--inactive-bg-color);
+    border-radius: 15px;
+    padding: 0 0.5rem 0 0.5rem;
+    transition: 0.3s ease-in;
+}
+
+button.selectTickbox:hover {
+    background: var(--inactive-hover-bg-color);
+}
+
+button.selectTickbox.active {
+    background: var(--active-bg-color);
+}
+
+button.selectTickbox.active:hover {
+    background: var(--active-hover-bg-color);
+}
+

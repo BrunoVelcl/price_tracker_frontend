@@ -12,5 +12,7 @@
     "loginButton": "Prijavi se",
     "myProfile": "Moj Profil",
     "addStore": "Dodaj Trgovinu",
-    "remove": "Makni"
+    "remove": "Ukloni",
+    "searchStore": "Pretraži trgovine",
+    "select": "Odaberi"
 }

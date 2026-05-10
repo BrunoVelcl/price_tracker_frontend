@@ -3,10 +3,11 @@ import "./StoreSelector.css";
 
 interface Props {
     children: ReactNode;
+    onClick: () => void;
 }
 
-export default function ButtonRemove( { children }: Props ) {
+export default function ButtonRemove( { children, onClick }: Props ) {
     return (
-	<button className="button remove">{children}</button>
+	<button onClick={()=>onClick()} className="button remove">{children}</button>
     );
 }

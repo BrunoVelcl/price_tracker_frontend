@@ -6,16 +6,22 @@ import { useTranslation } from "react-i18next";
 
 interface Props {
     store: Store;
+    onClick: ( id: number) => void;
 }
 
-export default function SelectedStore( { store }: Props ) {
+export default function SelectedStore( { store, onClick }: Props ) {
     const { t } = useTranslation();
+    
+    const clickHandler = () => {
+	onClick(store.id);
+	console.log("CLICKED");
+    }
 
     return (
 	<article className="selected-store">
 	    <ChainIdentifier chain={store.chain} />
 	    <section className="store-address">{store.address}</section>
-	    <ButtonRemove>{t("remove")}</ButtonRemove>
+	    <ButtonRemove onClick={clickHandler}>{t("remove")}</ButtonRemove>
 	</article>
     );
 }

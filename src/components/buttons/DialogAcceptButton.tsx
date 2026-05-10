@@ -2,7 +2,7 @@ import "./DialogButtons.css"
 import SvgCheck from "../../assets/Check"  
 
 interface Props {
-    onClick(): () => void;
+    onClick: () => void;
 }
 
 export default function DialogAcceptButton( { onClick }: Props ) {

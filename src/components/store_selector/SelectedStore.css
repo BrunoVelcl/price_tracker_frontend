@@ -16,12 +16,13 @@
 .selected-store {
     display: flex;
     flex-flow: row nowrap;
+    margin: 0.2rem 0 0.2rem 0;
 	
     .store-address {
 	background-color: var(--address-bg-color);
 	color: var(--address-text-color);
 	text-align: center;
-	width: 30rem;
+	width: 36rem;
 	overflow: hidden;
 	text-overflow: clip;
 	white-space: nowrap;
@@ -60,7 +61,7 @@
 
 .button.add-store {
     margin-top: 2rem;
-    width: 38rem;
+    width: 44rem;
     text-align: center;
     font-weight: bold;
     border: solid 2px;

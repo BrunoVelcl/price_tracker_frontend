@@ -7,7 +7,7 @@ import ButtonAddStore from "./ButtonAddStore.tsx"
 import SearchDialog from "../SearchDialog.tsx"
 
 interface Props {
-    selectedStores?: Array<number>;
+    selectedStores?: Set<number>;
     availableStores?: Array<Store>;
 
 }
@@ -17,28 +17,63 @@ export default function StoreSelector ( {selectedStores, availableStores}: Props
 
     const [isOpen, setIsOpen] = useState(false);
 
+    const [ storeFilter, setStoreFilter ] = useState(storesToSearchable(availableStores, selectedStores));
+    const storeFilterHandler = (id: number) => {
+	setStoreFilter( (storeFilter) =>
+	    storeFilter.map(store => {
+		return (store.id === id) ? { ...store, selected: !store.selected } : store;
+	    })
+	);
+    }
+
+    const [ selectedIds, setSelectedIds ] = useState(selectedStores);
+    const selectedIdsHandler = (newItems: Set<number>) => {
+	setSelectedIds(new Set([...selectedIds, ...newItems]));
+    }
+
     const closedDrawerClassName = "store-selector-button";
     const closedSurfaceClassName = "store-selector-surface"
     const menuOpen = "menu-open";
     const openDrawerClassName = closedDrawerClassName + " " + menuOpen;
     const openSurfaceClassName = closedSurfaceClassName + " " + menuOpen; 
 
+    const removeStoreHandler = (id:number) => {
+	setSelectedIds(prev => {
+	    const next = new Set(prev);
+	    next.delete(id);
+	    return next;
+	})
+	storeFilterHandler(id);
+    }
+
+    const drawStores = () => {
+	const stores: Array<Store> = [];
+	selectedIds.forEach(id=>stores.push(availableStores[id]));
+	return(
+	    <>
+		{stores.map(store=><SelectedStore key={"selectedStore-" + store.id} onClick={removeStoreHandler} store={store} />)}
+	    </>
+	);
+    }
+
     const drawStoreSelector = () => {
 	return (
 	    <section className={isOpen ? openSurfaceClassName : closedSurfaceClassName}>
-	    <ButtonAddStore onClick={()=>toggleStoreSearchDialog(storeSearchDialogRef)}/>
+		{drawStores()}
+		<ButtonAddStore onClick={()=>toggleStoreSearchDialog(storeSearchDialogRef)}/>
 	    </section>	
 	);
     }
 
-    const searchArray = storesToSearchable(availableStores, selectedStores);
     const storeSearchDialogRef = useRef<HTMLDialogElement>(null);
     const drawStoreSearchDialog = () => {
 	return(
 	    <dialog id="store-search-dialog" ref={storeSearchDialogRef}>
 		<SearchDialog 
-		    items={searchArray}
-		    alreadySelected={selectedStores}
+		    items={storeFilter}
+		    setItemsCallback={storeFilterHandler}
+		    alreadySelected={selectedIds}
+		    alreadySelectedCallback={selectedIdsHandler}
 		    closeHandler={()=>toggleStoreSearchDialog(storeSearchDialogRef)}
 		/>
 	    </dialog>
@@ -62,7 +97,7 @@ function toggleStoreSearchDialog( ref: {current: HTMLDialogElement | null} ) {
     dialog.open ? dialog.close() : dialog.showModal();
 }
 
-function storesToSearchable(stores: Array<Store>, alreadySelected?: Array<number>) {
+function storesToSearchable(stores: Array<Store>, alreadySelected?: Set<number>) {
     const items: Searchable[] = [];
     for (var i = 0; i < stores.length; i++) {
 	if(i !== stores[i].id) {continue} //TODO: Temp guard for huge backend bug
@@ -70,18 +105,9 @@ function storesToSearchable(stores: Array<Store>, alreadySelected?: Array<number
 	const text = stores[i].chain + " " +  stores[i].address;
 	var selected = false;
 	if(alreadySelected){
-	    selected = isIdInAlreadySelected(stores[i].id, alreadySelected); 
+	    selected = alreadySelected.has(stores[i].id); 
 	}
 	items.push({id:id, text:text, selected:selected})
     }
     return items;
-}
-
-function isIdInAlreadySelected ( id: number, alreadySelected: Array<number>) {
-    for( var existing of alreadySelected) {
-	if(id === existing) {
-	    return true;
-	}
-    }
-    return false;
 }
