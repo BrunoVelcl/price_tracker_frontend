@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: center;
     animation: search-load 0.3s ease-in;
+
 	.store-selector-button {
 	    background-color: rgb(from var(--black) r g b / 0.2);
 	    height: 100%;
@@ -54,6 +55,7 @@
 .store-selector-surface {
     background-color: var(--menu-surface-bg-color); 
     height: 100%;
+    width: 51rem;
     display: flex;
     flex-flow: column nowrap;
     align-items: start;
@@ -80,5 +82,23 @@
     }
     100% {
 	transform: translateX(0);
+    }
+}
+@media (width < 800px) {
+    #store-selector {
+	.store-selector-button {
+	    transform: translateX(-40rem);
+	}
+    }
+
+    .store-selector-surface {
+	width: 51rem;
+	padding-top: 1.5rem;
+	transform: translateX(-40rem);
+
+    }
+    .store-selector-surface.menu-open {
+	width: 100%;
+	padding: 1.5rem 0 0 0;
     }
 }

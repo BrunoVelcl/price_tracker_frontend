@@ -69,7 +69,7 @@
 
 .button.add-store {
     margin-top: 2rem;
-    width: 80%;
+    width: 38rem;
     text-align: center;
     font-weight: bold;
     border: solid 2px;
@@ -94,4 +94,17 @@
     100% { 
 	transform: translateX(0);
     }
+}
+
+@media (width < 800px) {
+    .selected-store {
+	margin-top: 1rem;
+	.store-address {
+	    width: 26rem;
+	    font-weight: bold;
+	}
+	.button.remove {
+	    transform: translateX(0);
+	}
+    }    
 }

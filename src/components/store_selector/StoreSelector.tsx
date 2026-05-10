@@ -8,12 +8,12 @@ import SearchDialog from "../SearchDialog.tsx"
 
 interface Props {
     selectedStores?: Set<number>;
-    availableStores?: Array<Store>;
+    availableStores: Array<Store>;
 
 }
 
 export default function StoreSelector ( {selectedStores, availableStores}: Props) {
-    if(!selectedStores || !availableStores) {return}
+    if(availableStores.length < 1 ) {return}
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +26,8 @@ export default function StoreSelector ( {selectedStores, availableStores}: Props
 	);
     }
 
-    const [ selectedIds, setSelectedIds ] = useState(selectedStores);
+    const [ selectedIds, setSelectedIds ] = useState<Set<number>>(
+	new Set(selectedStores ?? []));
     const selectedIdsHandler = (newItems: Set<number>) => {
 	setSelectedIds(new Set([...selectedIds, ...newItems]));
     }
