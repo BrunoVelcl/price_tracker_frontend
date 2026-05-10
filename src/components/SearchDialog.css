@@ -31,6 +31,10 @@ dialog {
     flex-flow: column nowrap;
     align-items: center;
     overflow: scroll;
+    
+    ul {
+	list-style: none;
+    }
 }
 
 .search-term {

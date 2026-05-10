@@ -44,7 +44,7 @@ export default function Navbar() {
 		<div className="portal-anchor">
 		<section>
 		    <Logo />
-		    <NavLink to="/" end><h1>Shoping Lista</h1></NavLink>
+		    <ExitAnimationLink to="/"><h1>Shoping Lista</h1></ExitAnimationLink>
 		</section>
 		<section>
 		    

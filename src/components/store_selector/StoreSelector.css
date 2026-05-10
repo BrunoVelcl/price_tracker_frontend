@@ -8,7 +8,7 @@
 @media(prefers-color-scheme: dark) {
     #store-selector {
 	--arrow-color: var(--atomic-black);
-	--menu-surface-bg-color: var(--charcoal);
+	--menu-surface-bg-color: var(--slate-gray);
     }
 }
 
@@ -20,10 +20,11 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
+    animation: search-load 0.3s ease-in;
 	.store-selector-button {
 	    background-color: rgb(from var(--black) r g b / 0.2);
 	    height: 100%;
-	    transform: translateX(-42rem);
+	    transform: translateX(-51rem);
 	    transition: transform 0.3s ease-out;
 	    svg {
 		height: 2rem;
@@ -57,7 +58,7 @@
     flex-flow: column nowrap;
     align-items: start;
     padding: 0 2rem 0 2rem;
-    transform: translateX(-42rem);
+    transform: translateX(-51rem);
     transition: transform 0.3s ease-out;
     pointer-events: none;
 }
@@ -71,4 +72,13 @@
     width: 100%;
     height: 100%;
     margin: 1rem 0  0 1rem;
+}
+
+@keyframes search-load {
+    0% {
+	transform: translateX(-100%);
+    }
+    100% {
+	transform: translateX(0);
+    }
 }

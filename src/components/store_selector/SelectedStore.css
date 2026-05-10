@@ -17,6 +17,7 @@
     display: flex;
     flex-flow: row nowrap;
     margin: 0.2rem 0 0.2rem 0;
+    animation: slide-right 0.3s ease-in ;
 	
     .store-address {
 	background-color: var(--address-bg-color);
@@ -59,15 +60,23 @@
     }
 }
 
+.selected-store.exit {
+    transition: 0.3s ease-out; 
+    transform: translateX(-120%);
+    margin-top: -1.45rem;
+    opacity: 0;
+   }
+
 .button.add-store {
     margin-top: 2rem;
-    width: 44rem;
+    width: 80%;
     text-align: center;
     font-weight: bold;
     border: solid 2px;
     border-radius: 15px 0 15px 0;
     corner-shape: scoop;
     transition: transform 0.3s ease-in;
+    align-self: center;
 }
 
 .button.add-store:hover {
@@ -76,4 +85,13 @@
 
 .button.button.add-store:active {
     transform: scale(0.95);
+}
+
+@keyframes slide-right {
+    0% { 
+	transform: translateX(-120%);
+    }
+    100% { 
+	transform: translateX(0);
+    }
 }
